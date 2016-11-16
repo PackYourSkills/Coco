@@ -5,7 +5,7 @@
 
 <p>Address of your nest <%= @nest.address %></p>
 
-<%= link_to "delete my nest", user_nest_path(@user, @nest), method: :delete, data: { confirm: "Are you sure?" } %>
-    || <%= link_to 'edit', edit_user_nest_path(@user, @nest) %>
+<%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" } %>
+    || <%= link_to 'edit', edit_nest_path(@nest) %>
     || <%= link_to "return to your profile", user_path(@user) %>
 

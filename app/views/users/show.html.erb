@@ -4,3 +4,10 @@
 <h1>Hi <%= current_user.first_name %> ! </h1>
 
 <%= link_to 'edit', edit_user_path %>
+
+<% if current_user.nest == nil %>
+    || <%= link_to 'share your nest', new_nest_path(current_user) %>
+<% else %>
+    || <%= link_to 'show your nest', nest_path(current_user.nest) %>
+    || <%= link_to 'delete your nest', nest_path(current_user.nest), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

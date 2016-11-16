@@ -1,4 +1,6 @@
-<%= simple_form_for [@user, @nest] do |a| %>
+<%= simple_form_for (@nest) do |a| %>
+  <%= a.hidden_field :user_id, :value => @user.id %>
+
   <%= a.input :address %>
   <%= a.input :city %>
   <%= a.input :zipcode %>
