@@ -1,0 +1,23 @@
+<%= simple_form_for(current_user) do |a| %>
+  <%= a.input :last_name %>
+  <%= a.input :first_name %>
+  <%= a.input :sexe %>
+  <%= a.input :birthdate %>
+<!-- about you -->
+  <%= a.input :job %>
+  <%= a.input :story %>
+<!-- contact -->
+  <%= a.input :skype %>
+  <%= a.input :email %>
+<!-- external link -->
+  <%= a.input :cv %>
+  <%= a.input :website %>
+<!-- bonus -->
+  <%= a.input :dream_coworker %>
+  <%= a.input :quote %>
+  <%= a.input :song %>
+<!-- also host ? -->
+  <%= a.input :host %>
+
+  <%= a.submit class: "btn btn-primary"%>
+<% end %>
