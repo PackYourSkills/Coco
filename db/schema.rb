@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20161116151631) do
+=======
 ActiveRecord::Schema.define(version: 20161116141454) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,8 +50,12 @@ ActiveRecord::Schema.define(version: 20161116141454) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
+<<<<<<< HEAD
+    t.string   "photo"
+=======
     t.float    "latitude"
     t.float    "longitude"
+>>>>>>> master
     t.index ["user_id"], name: "index_nests_on_user_id", using: :btree
   end
 
