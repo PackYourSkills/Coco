@@ -1,5 +1,7 @@
 <%= simple_form_for(current_user) do |a| %>
-   <%= a.input :first_name  %>
+  <%= a.input :photo %>
+  <%= a.input :photo_cache, as: :hidden %>
+  <%= a.input :first_name  %>
   <%= a.input :last_name %>
 
   <%= a.input :sexe, as: :radio_buttons,
