@@ -1,14 +1,13 @@
 class NestsController < ApplicationController
 
-skip_before_action :authenticate_user!, only: [:index]
+skip_before_action :authenticate_user!, only: [:index, :show]
 
 # before_action :set_user, only: [:new,:create, :show, :edit]
 before_action :set_nest, only: [:edit, :update, :show, :destroy]
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    fail
-    @nest = Nest.all
+    @nests = Nest.near(params['address'], params['radius'].to_i)
   end
 
   def new
