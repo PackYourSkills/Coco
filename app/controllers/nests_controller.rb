@@ -1,37 +1,48 @@
 class NestsController < ApplicationController
 
-before_action :set_user, only: [:new,:create, :show, :edit, :update]
-before_action :set_nest, only: [:edit, :update]
-  def new # GET /nests/new
+skip_before_action :authenticate_user!, only: [:index]
+
+# before_action :set_user, only: [:new,:create, :show, :edit]
+before_action :set_nest, only: [:edit, :update, :show, :destroy]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  def index
+    fail
+    @nest = Nest.all
+  end
+
+  def new
     @nest = Nest.new
+    @user = User.find(params['format'])
+  end
+
+  def show_from_user_id
+    @nest = Nest.find_by_user_id(@user)
   end
 
   def show
-    @nest = @user.nest
   end
 
-  def create # POST /nests
-    @nest = @user.build_nest(nest_params)
+  def create
+    @nest = Nest.new(nest_params)
     if @nest.save
-      redirect_to user_nest_path @user, @nest
+      redirect_to nest_path @nest
     else
       render :new
     end
   end
 
-  def edit # GET /nests/:id/edit
+  def edit
   end
 
-  def update # PATCH /nests/:id
-    @nest.update(user_params)
-    redirect_to user_nest_path @user, @nest
+  def update
+    @nest.update(nest_params)
+    redirect_to nest_path @nest
   end
 
-  def destroy # DELETE /nests/:id
-    @nest = Nest.find(params['id'])
-    @user = User.find(@nest.user_id)
+  def destroy
     @nest.destroy
-    redirect_to users_path(@user.id)
+    redirect_to user_path @user
   end
 
   private
@@ -40,15 +51,13 @@ before_action :set_nest, only: [:edit, :update]
     @nest = Nest.find(params['id'])
   end
 
-  def find_nest_by_user_id
-    @nest = Nest.find(params['id'])
-  end
-
   def set_user
-    @user = User.find(params['user_id'])
+    @user = User.find(@nest.user_id)
   end
 
   def nest_params
-    params.require(:nest).permit(:address, :city)
+    params.require(:nest).permit(:user_id, :address, :city, :zipcode, :description, :max_capacity, :price, :opening_hour, :closing_hour, :wifi, :printer, :phoning_room, :coffee, :tea, :microwave, :other_equipment)
   end
 end
+
+
