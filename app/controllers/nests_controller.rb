@@ -1,9 +1,15 @@
 class NestsController < ApplicationController
 
+skip_before_action :authenticate_user!, only: [:index]
+
 # before_action :set_user, only: [:new,:create, :show, :edit]
 before_action :set_nest, only: [:edit, :update, :show, :destroy]
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    fail
+    @nest = Nest.all
+  end
 
   def new
     @nest = Nest.new
@@ -17,7 +23,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   def show
   end
 
-  def create # POST /nests
+  def create
     @nest = Nest.new(nest_params)
     if @nest.save
       redirect_to nest_path @nest
