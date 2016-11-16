@@ -1,4 +1,61 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(230,70,75,0.5) 0%, rgba(245,100,80,0.3) 50%), url('https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg?w=940&h=650&auto=compress&cs=tinysrgb')">
 
-<%= render 'shared/searching_engine' %>
+  <div class="container">
+    <div class="banner-content">
+    <%= cl_image_tag("Coco-Logo-final_dptxaz.png",
+      width: 400, height: 300, crop: :fill) %>
+      <h1>CoCo</h1>
+      <h2>Cosy Cowork</h2>
+      <p>Travaillez comme à la maison</p>
+    </div>
+  </div>
+  <%= render 'shared/searching_engine' %>
+</div>
+
+
+<div class="wrapper-beige">
+  <div class="container padded">
+    <div class="row">
+      <div class="col-xs-6, col-sm-3">
+        <div class="icon text-center">
+          <i class="fa fa-laptop fa-5x" aria-hidden="true"></i>
+          <p>Partagez un coin de bureau avec d'autres entrepreneurs</p>
+        </div>
+      </div>
+      <div class="col-xs-6, col-sm-3">
+        <div class="icon text-center">
+          <i class="fa fa-coffee fa-5x" aria-hidden="true"></i>
+          <p>Echangez autour d'un café aussi bon qu'à la maison</p>
+        </div>
+      </div>
+      <div class="col-xs-6, col-sm-3">
+        <div class="icon text-center">
+          <i class="fa fa-cog fa-5x" aria-hidden="true"></i>
+          <p>Faites avancer votre projet grâce à un environnement stimulant</p>
+        </div>
+      </div>
+      <div class="col-xs-6, col-sm-3">
+        <div class="icon text-center">
+          <i class="fa fa-users fa-5x" aria-hidden="true"></i>
+          <p>Rencontrez peut être votre futur associé</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-grey text-center">
+      <div class="container padded">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <h2>Le nid du mois</h2>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="card" style="background-image: url('');">
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
