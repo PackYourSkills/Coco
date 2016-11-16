@@ -1,0 +1,2 @@
+class Nest < ApplicationRecord
+end

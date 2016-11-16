@@ -1,0 +1,11 @@
+<h1>Nests#show</h1>
+<p>Find me in app/views/nests/show.html.erb</p>
+
+<h1>Hi <%= @user.first_name %> ! </h1>
+
+<p>Address of your nest <%= @nest.address %></p>
+
+<%= link_to "delete my nest", user_nest_path(@user, @nest), method: :delete, data: { confirm: "Are you sure?" } %>
+    || <%= link_to 'edit', edit_user_nest_path(@user, @nest) %>
+    || <%= link_to "return to your profile", user_path(@user) %>
+

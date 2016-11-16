@@ -1,0 +1,25 @@
+<%= simple_form_for [@user, @nest] do |a| %>
+  <%= a.input :address %>
+  <%= a.input :city %>
+  <%= a.input :zipcode %>
+
+  <%= a.input :description %>
+  <%= a.input :max_capacity %>
+  <%= a.input :price %>
+
+  <%= a.input :opening_hour %>
+  <%= a.input :closing_hour %>
+
+
+  <%= a.input :wifi %>
+  <%= a.input :printer %>
+  <%= a.input :phoning_room %>
+
+  <%= a.input :coffee %>
+  <%= a.input :tea %>
+  <%= a.input :microwave %>
+
+  <%= a.input :other_equipment %>
+
+  <%= a.submit class: "btn btn-primary"%>
+<% end %>
