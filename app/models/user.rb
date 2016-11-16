@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :wishes
   has_one :nest, dependent: :destroy
+  mount_uploader :photo, PhotoUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
