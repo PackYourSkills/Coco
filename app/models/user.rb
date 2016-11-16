@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :bookings
+  has_many :wishes
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_one :nest, dependent: :destroy
