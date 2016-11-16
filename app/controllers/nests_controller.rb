@@ -55,7 +55,10 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def nest_params
-    params.require(:nest).permit(:user_id, :address, :city, :zipcode, :description, :max_capacity, :price, :opening_hour, :closing_hour, :wifi, :printer, :phoning_room, :coffee, :tea, :microwave, :other_equipment)
+    params.require(:nest).permit(:user_id, :address, :city, :zipcode, :description,
+      :max_capacity, :price, :opening_hour, :closing_hour, :wifi,
+      :printer, :phoning_room, :coffee, :tea, :microwave, :other_equipment,
+      :photo, :photo_cache)
   end
 end
 
