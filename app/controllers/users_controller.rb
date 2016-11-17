@@ -32,9 +32,6 @@ end
       :address, :city, :zip_code, :country,
       :quote, :dream_coworker, :song,
       :cv, :website, :host, :photo, :photo_cache)
-
-
-
   end
 end
 

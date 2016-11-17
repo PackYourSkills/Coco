@@ -7,7 +7,11 @@ before_action :set_nest, only: [:edit, :update, :show, :destroy]
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @nests = Nest.near(params['address'], params['radius'].to_i)
+    # @nests = Nest.all
+
+    radius = params['radius'].to_i
+    address = params['address'] + ', ' + params['city'] + ', ' + params['zip_code'] + ', ' + params['country']
+    @nests = Nest.near(address, radius)
     @hash = Gmaps4rails.build_markers(@nests) do |nest, marker|
       marker.lat nest.latitude
       marker.lng nest.longitude
@@ -21,7 +25,11 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
-    @hash = { lat: @nest.latitude, lng: @nest.longitude }
+    @hash = Gmaps4rails.build_markers(@nest) do |nest, marker|
+      marker.lat nest.latitude
+      marker.lng nest.longitude
+      # marker.infowindow render_to_string(partial: "/nests/map_box", locals: { nest: nest })
+    end
   end
 
   def create

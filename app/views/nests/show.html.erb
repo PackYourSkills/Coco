@@ -1,13 +1,17 @@
 <h1>Nests#show</h1>
 <p>Find me in app/views/nests/show.html.erb</p>
 
-<% if current_user.id == @nest.user_id %>
-  <h1>Welcome home <%= current_user.first_name %> ! </h1>
+<% if user_signed_in? %>
+  <% if current_user.id == @nest.user_id %>
+    <h1>Welcome home <%= current_user.first_name %> ! </h1>
+  <% else %>
+    <h1>Hi <%= current_user.first_name %> ! </h1>
+  <% end %>
 <% else %>
-  <h1>Hi <%= current_user.first_name %> ! </h1>
+  <h1>Hey buddy ! </h1>
 <% end %>
 
-<p>Address of this nest <%= @nest.address %></p>
+<p>Address of this nest <%= @nest.address %> - <%= @nest.city %></p>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
@@ -29,9 +33,10 @@
   <% end %>
 <% end %>
 
-
-<% if current_user.id == @nest.user_id %>
-  <%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" } %>
-      || <%= link_to 'edit', edit_nest_path(@nest) %>
-      || <%= link_to "return to your profile", user_path(@user) %>
+<% if user_signed_in? %>
+  <% if current_user.id == @nest.user_id %>
+    <%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" } %>
+        || <%= link_to 'edit', edit_nest_path(@nest) %>
+        || <%= link_to "return to your profile", user_path(@user) %>
+  <% end %>
 <% end %>
