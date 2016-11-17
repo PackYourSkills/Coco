@@ -10,7 +10,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     # @nests = Nest.all
 
     radius = params['radius'].to_i
-    address = params['address'] + ', ' + params['city'] + ', ' + params['zip_code'] + ', ' + params['country']
+    address = params['address']
     @nests = Nest.near(address, radius)
     @hash = Gmaps4rails.build_markers(@nests) do |nest, marker|
       marker.lat nest.latitude
