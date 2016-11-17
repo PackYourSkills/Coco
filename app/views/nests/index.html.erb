@@ -2,7 +2,7 @@
 <p>Find me in app/views/users/index.html.erb</p>
 
 <% @nests.each do |nest| %>
-  <p><%= nest.address %> - <%= link_to 'show', "/nests/#{nest.id}" %></p>
+  <p><%= nest.address %> - <%= nest.city %> - <%= link_to 'show', "/nests/#{nest.id}" %></p>
 <% end %>
 
 
