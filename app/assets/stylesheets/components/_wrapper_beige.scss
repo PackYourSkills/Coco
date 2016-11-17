@@ -1,8 +1,3 @@
-.wrapper-beige {
-  background-color: $beige;
-  height: 400px;
-}
-
 .padded {
   padding-top: 100px;
 }
@@ -20,7 +15,7 @@
   transition-property: transform;
   p {
     padding-top: 20px;
-    font-family: PT sans;
+    font-family: $base-font;
   }
 }
 
