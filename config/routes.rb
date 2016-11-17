@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  get 'timeslots/index'
+
+  get 'timeslots/new'
+
+  get 'timeslots/show'
+
+  get 'timeslots/edit'
+
+  get 'timeslots/delete'
+
   devise_for :users
   root to: 'pages#home'
 
