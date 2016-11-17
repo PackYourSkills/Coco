@@ -1,5 +1,5 @@
 .wrapper-beige {
-  background-color: rgb(255, 230, 200);
+  background-color: $beige;
   height: 400px;
 }
 
@@ -9,7 +9,7 @@
 
 .icon {
   padding: 20px;
-  color: rgb(230, 70, 75);
+  color: $red;
   display: inline-block;
   vertical-align: middle;
   transform: translateZ(0);

@@ -10,17 +10,18 @@ h1, h2, p {
   color: white;
   h1 {
   font-weight: bolder;
-  font-family: signika;
+  font-family: $header-font;
   font-size: 80px,
   }
   h2 {
-    font-family: signika;
+    font-family: $header-font;
     font-size: 40px;
     margin-bottom: 30px;
   }
   p {
-    font-family: PT sans;
+    font-family: $base-font;
     font-size: 32px;
+    margin-top: 30px;
   }
 }
 

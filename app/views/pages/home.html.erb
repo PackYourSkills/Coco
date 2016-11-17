@@ -2,10 +2,8 @@
 
   <div class="container">
     <div class="banner-content">
-    <%= cl_image_tag("Coco-Logo-final_dptxaz.png",
-      width: 400, height: 300, crop: :fill) %>
-      <h1>CoCo</h1>
-      <h2>Cosy Cowork</h2>
+    <%= cl_image_tag("logo-coco_nbtefo.png",
+      width: 400, height: 170, crop: :limit) %>
       <p>Travaillez comme à la maison</p>
     </div>
   </div>
@@ -44,18 +42,44 @@
   </div>
 
   <div class="wrapper-grey text-center">
-      <div class="container padded">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <h2>Le nid du mois</h2>
+    <div class="container padded">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2>Les nids du mois</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: url('https://images.pexels.com/photos/169915/pexels-photo-169915.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');">
+            <div class="card-category"><h1>Lille</h1></div>
+              <div class="card-description">
+                <h2>Le nid de Zoé</h2>
+                <p>Lumineux et bien équipé</p>
+              </div>
+              <%= image_tag "Coco-seul.png", class: "card-user avatar avatar-large" %>
           </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              <div class="card" style="background-image: url('');">
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: url('https://images.pexels.com/photos/94644/pexels-photo-94644.jpeg?h=350&auto=compress');">
+            <div class="card-category"><h1>Paris</h1></div>
+              <div class="card-description">
+                <h2>Le nid de Roberto</h2>
+                <p>Le meilleur café de la capitale</p>
               </div>
-            </div>
+              <%= image_tag "Coco-seul.png", class: "card-user avatar avatar-large" %>
           </div>
+        </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: url('https://images.pexels.com/photos/4915/wood-table-hut-cups.jpeg?w=940&h=650&auto=compress&cs=tinysrgb');">
+            <div class="card-category"><h1>Wimereux</h1></div>
+              <div class="card-description">
+                <h2>Le nid de Johnny</h2>
+                <p>Une musique qu'elle est bien pour travailler</p>
+              </div>
+              <%= image_tag "Coco-seul.png", class: "card-user avatar avatar-large" %>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 
