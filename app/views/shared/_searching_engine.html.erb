@@ -13,3 +13,17 @@
   </div>
   <button type="submit" class="btn btn-primary">GoCoco</button>
 </form>
+<!--
+<%= simple_form_for @nest, :html => { class: 'form-inline' }, :url => nests_path, :method => 'get' do |f| %>
+  <%= f.input :address, :input_html => {:name => "address"} %>
+  <%= f.input :zip_code, as: :hidden, :input_html => {:name => "zip_code"} %>
+  <%= f.input :city, as: :hidden, :input_html => {:name => "city"} %>
+  <%= f.input :country, as: :hidden, :input_html => {:name => "country"} %>
+  <%= f.input :radius, :input_html => {:name => "radius"} %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<% end %>
+ -->
