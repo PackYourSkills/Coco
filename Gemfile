@@ -55,6 +55,7 @@ gem 'devise'
 
 # Geocoder
 gem "geocoder"
+gem 'bootstrap-datepicker-rails'
 
 # GMAPS4RAILS
 # gem "coffee-rails"
