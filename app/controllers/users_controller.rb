@@ -21,7 +21,7 @@ class UsersController < ApplicationController
       :phone, :skype, :sexe, :birthdate, :story,
       :address, :city, :zip_code, :country,
       :quote, :dream_coworker, :song,
-      :cv, :website, :host)
+      :cv, :website, :host, :photo, :photo_cache)
   end
 end
 
