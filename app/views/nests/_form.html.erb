@@ -3,7 +3,9 @@
 
   <%= a.input :address %>
   <%= a.input :city %>
-  <%= a.input :zipcode %>
+  <%= a.input :zip_code %>
+  <%= a.input :country, as: :string, priority: [ 'FR' ] %>
+
 
   <%= a.input :description %>
   <%= a.input :max_capacity %>
