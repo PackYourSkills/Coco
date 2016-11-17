@@ -1,5 +1,7 @@
 <%= simple_form_for(current_user) do |a| %>
-   <%= a.input :first_name  %>
+  <%= a.input :photo %>
+  <%= a.input :photo_cache, as: :hidden %>
+  <%= a.input :first_name  %>
   <%= a.input :last_name %>
 
   <%= a.input :sexe, as: :radio_buttons,
@@ -13,6 +15,12 @@
 <!-- about you -->
   <%= a.input :job , placeholder: 'What are you doing ?' %>
   <%= a.input :story , placeholder: 'Tell us more about you' %>
+
+<!-- address -->
+  <%= a.input :address %>
+  <%= a.input :city %>
+  <%= a.input :zip_code %>
+  <%= a.input :country, as: :string, priority: [ 'FR' ] %>
 
 <!-- contact -->
     <%= a.input :skype ,label: "Skype", placeholder: 'put the your username in Skype'%>
