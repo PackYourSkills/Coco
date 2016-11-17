@@ -40,12 +40,7 @@ function onSearchPlaceChanged() {
   var place = this.getPlace();
   var components = getAddressComponents(place);
 
-  $('#search_address').trigger('blur').val(components.address);
-  $('#search_zip_code').val(components.zip_code);
-  $('#search_city').val(components.city);
-  if (components.country_code) {
-    $('#search_country').val(components.country_code);
-  }
+  $('#search_address').trigger('blur').val(components.formatted_address);
 }
 
 function getAddressComponents(place) {
@@ -58,6 +53,7 @@ function getAddressComponents(place) {
   var zip_code = null;
   var city = null;
   var country_code = null;
+  var formated_address = null;
   for (var i in place.address_components) {
     var component = place.address_components[i];
     for (var j in component.types) {
@@ -75,11 +71,13 @@ function getAddressComponents(place) {
       }
     }
   }
+  formatted_address = place.formatted_address
 
   return {
     address: street_number == null ? route : (street_number + ' ' + route),
     zip_code: zip_code,
     city: city,
-    country_code: country_code
+    country_code: country_code,
+    formatted_address: formatted_address
   };
 }

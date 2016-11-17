@@ -1,0 +1,32 @@
+/* -------------------------------------------------------------------- */
+/* Index */
+/* -------------------------------------------------------------------- */
+.container_0_margin{
+  margin:0px;
+}
+
+.container_0_padding {
+  padding:0px;
+}
+
+.half_page_fixed_100_vh {
+  margin:0px;
+  padding:0px;
+  color: white;
+  background-size: cover !important;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* if 70px navbar => height: calc(100vh - 70px); */
+}
+
+.card_index_results {
+  background-color: white;
+  height:100px;
+}
+
+.search_engin_result_page {
+    height:100px;
+
+}

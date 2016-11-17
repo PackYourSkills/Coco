@@ -1,8 +1,5 @@
 <%= simple_form_for :search, :html => { class: 'form-inline' }, :url => nests_path, :method => 'get' do |f| %>
   <%= f.input :address, label: false, :input_html => {:name => "address"} %>
-  <%= f.input :zip_code, as: :hidden, :input_html => {:name => "zip_code"} %>
-  <%= f.input :city, as: :hidden, :input_html => {:name => "city"} %>
-  <%= f.input :country, as: :hidden, :input_html => {:name => "country"} %>
   <div class="input-group">
     <%= f.input :radius, label: false, placeholder: 'max distance', :input_html => {:name => "radius", class: 'form-control'} %>
     <div class="input-group-addon">km</div>
