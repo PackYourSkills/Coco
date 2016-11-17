@@ -1,0 +1,45 @@
+.card {
+  box-shadow: 1px 1px 2px $gray-lighter;
+  border-radius: 5px;
+  height: 250px;
+  background-size: cover !important;
+  position: relative;
+  margin-top: 100px;
+  h1 {
+    margin: 0;
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    color: $brown;
+  }
+  h3 {
+  position: absolute;
+  margin: 0;
+  top: 10px;
+  left: 5px;
+  color: $red;
+  font-family: $header-font;
+  }
+  h2 {
+  position: absolute;
+  margin: 0;
+  bottom: 45px;
+  left: 5px;
+  color: white;
+  font-family: $base-font;
+  font-weight: Bold;
+  }
+  p {
+  color: white;
+  font-family: $base-font;
+  font-weight: regular;
+  position: absolute;
+  margin: 0;
+  bottom: 10px;
+  left: 5px;
+  }
+}
+
+.card:hover {
+  opacity: 0.5;
+}

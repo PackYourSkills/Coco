@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'carrierwave'
 ##--------------------------------------------------#
 #GEMFILE TO ADD
 #--------------------------------------------------##
@@ -53,6 +53,13 @@ gem 'devise'
 # Geocoder
 gem "geocoder"
 
+# GMAPS4RAILS
+# gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 #--------------------------------------------------#
 #End
 #--------------------------------------------------#

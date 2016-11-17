@@ -1,14 +1,18 @@
 class NestsController < ApplicationController
 
-skip_before_action :authenticate_user!, only: [:index]
+skip_before_action :authenticate_user!, only: [:index, :show]
 
 # before_action :set_user, only: [:new,:create, :show, :edit]
 before_action :set_nest, only: [:edit, :update, :show, :destroy]
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    fail
-    @nest = Nest.all
+    @nests = Nest.near(params['address'], params['radius'].to_i)
+    @hash = Gmaps4rails.build_markers(@nests) do |nest, marker|
+      marker.lat nest.latitude
+      marker.lng nest.longitude
+      # marker.infowindow render_to_string(partial: "/nests/map_box", locals: { nest: nest })
+    end
   end
 
   def new
@@ -16,11 +20,8 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     @user = User.find(params['format'])
   end
 
-  def show_from_user_id
-    @nest = Nest.find_by_user_id(@user)
-  end
-
   def show
+    @hash = { lat: @nest.latitude, lng: @nest.longitude }
   end
 
   def create
@@ -56,7 +57,11 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def nest_params
-    params.require(:nest).permit(:user_id, :address, :city, :zipcode, :description, :max_capacity, :price, :opening_hour, :closing_hour, :wifi, :printer, :phoning_room, :coffee, :tea, :microwave, :other_equipment)
+    params.require(:nest).permit(:user_id, :description,
+      :address, :city, :zip_code, :country,
+      :max_capacity, :price, :opening_hour, :closing_hour, :wifi,
+      :printer, :phoning_room, :coffee, :tea, :microwave, :other_equipment,
+      :photo, :photo_cache)
   end
 end
 
