@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161116164257) do
+ActiveRecord::Schema.define(version: 20161117111301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,10 +46,19 @@ ActiveRecord::Schema.define(version: 20161116164257) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.string   "photo"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "photo"
     t.index ["user_id"], name: "index_nests_on_user_id", using: :btree
+  end
+
+  create_table "timeslots", force: :cascade do |t|
+    t.date     "date"
+    t.integer  "capacity"
+    t.integer  "nest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nest_id"], name: "index_timeslots_on_nest_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -100,6 +109,7 @@ ActiveRecord::Schema.define(version: 20161116164257) do
   add_foreign_key "bookings", "nests"
   add_foreign_key "bookings", "users"
   add_foreign_key "nests", "users"
+  add_foreign_key "timeslots", "nests"
   add_foreign_key "wishes", "nests"
   add_foreign_key "wishes", "users"
 end

@@ -2,6 +2,7 @@ class Nest < ApplicationRecord
   belongs_to :user
   has_many :bookings
   has_many :wishes
+  has_many :timeslots
 
   mount_uploader :photo, PhotoUploader
 
