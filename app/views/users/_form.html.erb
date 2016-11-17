@@ -1,8 +1,10 @@
+
 <%= simple_form_for(current_user) do |a| %>
   <%= a.input :photo %>
   <%= a.input :photo_cache, as: :hidden %>
   <%= a.input :first_name  %>
   <%= a.input :last_name %>
+
 
   <%= a.input :sexe, as: :radio_buttons,
     collection: ['Male', 'Female'], wrapper: :vertical_radio_and_checkboxes %>
@@ -12,6 +14,7 @@
   <%= a.input :birthdate, as: :date, start_year: Date.today.year - 100,
                               end_year: Date.today.year - 18, discard_day: false,
                               order: [:day, :month, :year] %>
+
 <!-- about you -->
   <%= a.input :job , placeholder: 'What are you doing ?' %>
   <%= a.input :story , placeholder: 'Tell us more about you' %>
@@ -26,6 +29,7 @@
     <%= a.input :skype ,label: "Skype", placeholder: 'put the your username in Skype'%>
 
   <%= a.input :email ,label: "Email", placeholder: 'put your email address here'%>
+  <%= a.input :phone ,label: "Phone number", placeholder: 'put your phone number here'%>
 <!-- external link -->
 <%= a.input :website ,label: "Your website", placeholder: 'put the link here'%>
 
@@ -39,7 +43,6 @@
 
   <%= a.submit class: "btn btn-primary"%>
 <% end %>
-
 
 
 

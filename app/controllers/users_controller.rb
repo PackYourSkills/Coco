@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
 
-  def show # GET /users/:id
+  def show
+    @user = User.find(params[:id])
+@birthdate= age(@user.birthdate)
   end
+
+
 
   def edit # GET /users/:id/edit
   end
@@ -16,6 +20,12 @@ class UsersController < ApplicationController
 
   private
 
+
+def age(dob)
+  now = Time.now.utc.to_date
+  now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)
+
+end
   def user_params
     params.require(:user).permit(:first_name, :last_name, :job,
       :phone, :skype, :sexe, :birthdate, :story,
