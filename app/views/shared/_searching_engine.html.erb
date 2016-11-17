@@ -1,15 +1,13 @@
+<%= simple_form_for :search, :html => { class: 'form-inline' }, :url => nests_path, :method => 'get' do |f| %>
+  <%= f.input :address, label: false, :input_html => {:name => "address"} %>
+  <%= f.input :zip_code, as: :hidden, :input_html => {:name => "zip_code"} %>
+  <%= f.input :city, as: :hidden, :input_html => {:name => "city"} %>
+  <%= f.input :country, as: :hidden, :input_html => {:name => "country"} %>
+  <div class="input-group">
+    <%= f.input :radius, label: false, placeholder: 'max distance', :input_html => {:name => "radius", class: 'form-control'} %>
+    <div class="input-group-addon">km</div>
+  </div>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
 
-<form class="form-inline" action='/nests' method='get'>
-  <div class="form-group">
-    <label for="search_address"></label>
-    <input type="text" class="form-control" id="search_address" placeholder="Where? street, city" name="address">
-  </div>
-  <div class="form-group">
-    <label for="radius"></label>
-    <div class="input-group">
-      <input type="text" class="form-control" id="radius" placeholder="in a radius of .." name="radius">
-      <div class="input-group-addon">km</div>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Go Coco</button>
-</form>
+
