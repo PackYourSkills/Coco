@@ -3,7 +3,9 @@
 
   <%= a.input :address %>
   <%= a.input :city %>
-  <%= a.input :zipcode %>
+  <%= a.input :zip_code %>
+  <%= a.input :country, as: :string, priority: [ 'FR' ] %>
+
 
   <%= a.input :description %>
   <%= a.input :max_capacity %>
@@ -27,5 +29,10 @@
   <%= a.input :photo_cache, as: :hidden %>
 
   <%= a.submit class: "btn btn-primary"%>
+<% end %>
+
+
+<%= content_for(:after_js) do %>
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
 <% end %>
 
