@@ -1,2 +1,9 @@
 <h1>Timeslots#index</h1>
-<p>Find me in app/views/timeslots/index.html.erb</p>
+
+<p>Select a date</p>
+
+<input type="text" data-provide='datepicker' >
+
+<%= link_to 'back to your nest', nest_path(current_user.nest) %>
+<%= link_to 'add an availability', new_nest_timeslot_path %>
+

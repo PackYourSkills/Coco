@@ -1,2 +1,22 @@
 <h1>Timeslots#new</h1>
 <p>Find me in app/views/timeslots/new.html.erb</p>
+
+<%= simple_form_for [@nest, @timeslot] do |a| %>
+  <%= a.input :date, :required => true, :input_html => {"data-behaviour" => 'datepicker'} %>
+  <%= a.input :capacity %>
+  <%= a.submit class: 'btn btn-primary' %>
+<% end %>
+
+
+
+
+
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+  $(document).ready(function(){
+  $(document).on(“focus”, “[data-behaviour~=‘datepicker’]”, function(e){
+      $(this).datepicker({“format”: “dd/mm/yyyy”, “weekStart”: 1, “autoclose”: true});
+      });
+  });
+  <% end %>
+<% end %>
