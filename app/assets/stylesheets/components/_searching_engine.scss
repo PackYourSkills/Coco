@@ -1,0 +1,24 @@
+.form-control {
+  border-radius: 5px;
+  font-family: $base-font;
+}
+
+.input-group-addon {
+  color: $red;
+  background-color: $beige;
+  font-family: $base-font;
+}
+
+.btn-primary {
+  background-color: $red;
+  color: $beige;
+  border-style: none;
+  font-family: $base-font;
+}
+
+.btn-primary:hover {
+  background-color: $brown;
+  color: $beige;
+  border-style: none;
+  font-family: $base-font;
+}
