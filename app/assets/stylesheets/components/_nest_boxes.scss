@@ -1,0 +1,71 @@
+.welcome {
+  margin: 20px;
+}
+
+.nest_address {
+  padding-bottom: 20px;
+}
+
+.row_one {
+  margin-bottom: 20px;
+}
+
+.row_two {
+  margin-bottom: 50px;
+}
+
+.nest_description_box {
+  background-color: $brown;
+  padding: 10px;
+  border-radius: 5px;
+  p {
+    color: $beige;
+  }
+}
+
+.nest_photo_box {
+  height: 300px;
+  background-size: cover;
+  border-radius: 5px;
+}
+
+.nest_summary_box {
+  background-color: $brown;
+  padding: 10px;
+  border-radius: 5px;
+   p {
+    color: $beige;
+  }
+  h3 {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+}
+
+.nest_equipment_box {
+  background-color: $red;
+  padding: 20px;
+  border-radius: 5px;
+  p {
+    color: $beige;
+    text-align: right;
+    clear: both;
+  }
+  p i {
+    float: left;
+  }
+}
+
+.map_box {
+  background-size: cover;
+}
+
+.fa {
+  color: $brown;
+  float: left;
+  padding-bottom:5px;
+}
+
+.nest_show {
+  padding-left: 20px;
+}
