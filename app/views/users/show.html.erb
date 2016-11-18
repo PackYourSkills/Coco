@@ -6,7 +6,7 @@
         <h1><%= @user.first_name if @user.first_name != nil %></h1>
         <p><%= @age if @user.birthdate != nil %> ans</p>
         <% if current_user.id == @user.id %>
-          <%= link_to 'edit', edit_user_path, :class => "btn btn-success btn-sm" %>
+          <%= link_to 'edit', edit_user_path, :class => "btn btn-primary btn-sm" %>
         <% end %>
        </div>
    </div>
