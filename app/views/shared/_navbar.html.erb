@@ -14,7 +14,7 @@
         <% else %>
           <%= link_to 'your nest', nest_path(current_user.nest) , :class => "btn btn-primary" %>
         <% end %>
-        <%= link_to t(".sign_out", default: "Escape from here", method: :delete), new_user_session_path, class: "btn btn-danger fa fa-sign-out" %>
+        <%= link_to t(".sign_out", default: "Escape from here"), new_user_session_path, class: "btn btn-danger fa fa-sign-out", method: :delete %>
       <% else %>
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
