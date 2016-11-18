@@ -1,85 +1,88 @@
 
-<center>
-<h1>Hi <%= current_user.first_name %> ! </h1>
+  <center>
+  <h1>Hi <%= current_user.first_name %> ! </h1>
 
-<%= link_to 'edit', edit_user_path, :class => "btn btn-success btn-sm" %>
-
-
+  <%= link_to 'edit', edit_user_path, :class => "btn btn-success btn-sm" %>
 
 
-<% if current_user.nest == nil %>
-    || <%= link_to 'share your nest', new_nest_path(current_user), :class => "btn btn-info btn-sm" %>
-<% else %>
-    || <%= link_to 'show your nest', nest_path(current_user.nest), :class => "btn btn-secondary" %>
-    || <%= link_to 'delete your nest', nest_path(current_user.nest), method: :delete, data: { confirm: "Are you sure?" } %>
-<% end %>
-</center>
+
+  <% if current_user.nest == nil %>
+     <%= link_to 'share your nest', new_nest_path(current_user), :class => "btn btn-info btn-sm" %>
+  <% else %>
+       <%= link_to 'show your nest', nest_path(current_user.nest), :class => " btn btn-outline-secondary" %>
+      <%= link_to 'delete your nest', nest_path(current_user.nest), method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+  </center>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
 
 
-     <h3> Your photo </h3>
-
-     <div><%= image_tag "profiledefault.png" %></div>
-
-
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> -->
-
-      <h3> Infos base </h3>
-     <p> <%= @birthdate %> </p>
-
-     <p> <%= @user.address %> </p>
-     <p> <%= @user.city %> </p>
-     <p> <%= @user.country %> </p>
-     <p> <%= @user.phone %> </p>
-
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <!-- insert <div class="card"> --><h3><p>
-      My story </p></h3>
-      <p> <%= @user.story %> </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
 
 
-    </div>
-    </div>
-
-    <div class="row row_bottom" >
-
-      <div class="col-xs-12 col-sm-4 si">
-
-      <!-- insert <div class="card"> -->
-      <h3><p> Your favorite song </p></h3>
+       <h3> Your photo </h3>
+        <%= image_tag @user.photo, class: "img-Thumbnail",width: "70%",height: "10%"%>
 
 
-      <%= link_to "Click here", @user.song %>
 
- </div>
-<div class="col-xs-12 col-sm-4 si">
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> -->
+
+        <h3> Infos base </h3>
+      <% if @user.birthdate != nil %>
+        <p> <%= @birthdate %> </p>
+      <% end %>
+       <p> <%= @user.address %> </p>
+       <p> <%= @user.city %> </p>
+       <p> <%= @user.country %> </p>
+       <p> <%= @user.phone %> </p>
+
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <!-- insert <div class="card"> --><h3><p>
+        My story </p></h3>
+        <p> <%= @user.story %> </p>
+
+
+      </div>
+      </div>
+
+
+
+      <div class="row row_bottom" >
+
+        <div class="col-xs-12 col-sm-4 si">
+
+        <!-- insert <div class="card"> -->
+
+<h3> My favorite quote</h3>
+        <p> <%= @user.quote %> </p>
+
+
+
+   </div>
+  <div class="col-xs-12 col-sm-4 si">
       <h3> My dreamed coworker</h3>
-      <p> <%= @user.dream_coworker %> </p>
+        <p> <%= @user.dream_coworker %> </p>
+
+       </div>
+
+  <div class="col-xs-12 col-sm-4 si">
 
 
+<h3><p> Your favorite song </p></h3>
 
-     </div>
+  <iframe width="250" height="200" src="http://www.youtube.com/embed/<%= @user.song_youtube_id %>" frameborder="0" allowfullscreen></iframe>
+       </div>
 
-<div class="col-xs-12 col-sm-4 si">
-      <h3> My favorite quote</h3>
-      <p> <%= @user.quote %> </p>
-
-
-
-     </div>
-
-     </div>
+       </div>
+      </div>
     </div>
+
+
+
+
   </div>
-
-
-
-
-</div>
