@@ -4,7 +4,9 @@
        <div class="box box_ratio_1_1" style="background-image: url(<%= @user.photo %>);"></div>
        <div class="box_name">
         <h1><%= @user.first_name if @user.first_name != nil %></h1>
-        <p><%= @age if @user.birthdate != nil %> ans</p>
+        <% if @user.birthdate != nil %>
+          <p><%= @age %> ans</p>
+        <% end %>
         <% if current_user.id == @user.id %>
           <%= link_to 'edit', edit_user_path, :class => "btn btn-primary btn-sm" %>
         <% end %>
@@ -14,7 +16,7 @@
     <div class="container-profil">
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <% if @user.story != "" %>
+          <% if @user.story != "" && @user.story != nil %>
             <div class="box">
               <div class="title">his story</div>
               <div class="content_box">
@@ -22,7 +24,7 @@
               </div>
             </div>
           <% end %>
-          <% if @user.song_youtube_id != nil %>
+          <% if @user.song_youtube_id != "" && @user.song_youtube_id != nil %>
             <div class="box box_song">
               <div class="title">his working song</div>
               <div class="content_box">
@@ -32,7 +34,7 @@
           <% end %>
         </div>
         <div class="col-xs-12 col-sm-6">
-          <% if @user.quote != "" %>
+          <% if @user.quote != "" && @user.quote != nil %>
             <div class="box box_quote">
               <div class="title">his favorite quote</div>
               <div class="content_box">
@@ -40,7 +42,7 @@
               </div>
             </div>
           <% end %>
-          <% if @user.website != "" %>
+          <% if @user.website != "" && @user.website != nil %>
             <div class="box">
               <div class="content_box">
                 <h1>Website</h1>
@@ -48,7 +50,7 @@
               <div class="box_link"><%= link_to '', @user.website %></div>
             </div>
           <% end %>
-          <% if @user.dream_coworker != "" %>
+          <% if @user.dream_coworker != ""  && @user.dream_coworker != nil %>
             <div class="box box_cowork">
               <div class="title">the coworker of his dream</div>
               <div class="content_box">
@@ -56,7 +58,7 @@
               </div>
             </div>
           <% end %>
-          <% if @user.cv != "" %>
+          <% if @user.cv != ""  && @user.cv != nil %>
             <div class="box">
               <div class="box_link"><%= link_to '', @user.cv %></div>
               <div class="content_box">
