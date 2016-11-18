@@ -24,6 +24,9 @@
   p {
     color: $beige;
   }
+  a {
+    color: white
+  }
 }
 
 .nest_photo_box {
@@ -76,4 +79,5 @@
 .avatar_host {
   width:100px;
   height:auto;
+  border-radius:50%;
 }
