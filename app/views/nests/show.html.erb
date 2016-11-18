@@ -17,8 +17,8 @@
             <p><%= link_to "manage avalabilities", nest_timeslots_path(@nest), class: "deviselink nest_show" %></p>
             <% else %>
             <h2>Nid de <%= @nest.user.first_name %></h2>
+            <%= link_to 'see the profil', user_path(@nest.user) %>
             <p><%= @nest.description %></p>
-            <%= link_to 'see his profil', user_path(@nest.user) %>
           <% end %>
         </div>
       </div>
