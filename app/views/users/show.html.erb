@@ -22,7 +22,7 @@
         <div class="col-xs-12 col-sm-6">
           <% if @user.story != "" && @user.story != nil %>
             <div class="box">
-              <div class="title">his story</div>
+              <div class="title">story</div>
               <div class="content_box">
                 <p><%= @user.story %></p>
               </div>
@@ -30,7 +30,7 @@
           <% end %>
           <% if @user.song_youtube_id != "" && @user.song_youtube_id != nil %>
             <div class="box box_song">
-              <div class="title">his working song</div>
+              <div class="title">working song</div>
               <div class="content_box">
                 <iframe width="100%" height="auto" src="http://www.youtube.com/embed/<%= @user.song_youtube_id %>" frameborder="0" allowfullscreen></iframe>
               </div>
@@ -40,7 +40,7 @@
         <div class="col-xs-12 col-sm-6">
           <% if @user.quote != "" && @user.quote != nil %>
             <div class="box box_quote">
-              <div class="title">his favorite quote</div>
+              <div class="title">favorite quote</div>
               <div class="content_box">
                 <p><%= @user.quote %></p>
               </div>
@@ -56,7 +56,7 @@
           <% end %>
           <% if @user.dream_coworker != ""  && @user.dream_coworker != nil %>
             <div class="box box_cowork">
-              <div class="title">the coworker of his dream</div>
+              <div class="title">dreamed coworker</div>
               <div class="content_box">
                 <h1><%= @user.dream_coworker %></h1>
               </div>
