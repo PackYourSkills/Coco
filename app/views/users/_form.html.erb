@@ -1,49 +1,53 @@
-
-<%= simple_form_for(current_user) do |a| %>
-  <%= a.input :photo %>
-  <%= a.input :photo_cache, as: :hidden %>
-  <%= a.input :first_name  %>
-  <%= a.input :last_name %>
-
-
-  <%= a.input :sexe, as: :radio_buttons,
-    collection: ['Male', 'Female'], wrapper: :vertical_radio_and_checkboxes %>
+<div class="container nest_edit">
+  <div class="nest_form_inputs">
+  <%= simple_form_for(current_user) do |a| %>
+    <%= a.input :photo %>
+    <%= a.input :photo_cache, as: :hidden %>
+    <%= a.input :first_name  %>
+    <%= a.input :last_name %>
 
 
+    <%= a.input :sexe, as: :radio_buttons,
+      collection: ['Male', 'Female'], wrapper: :vertical_radio_and_checkboxes %>
 
-  <%= a.input :birthdate, as: :date, start_year: Date.today.year - 100,
-                              end_year: Date.today.year - 18, discard_day: false,
-                              order: [:day, :month, :year] %>
 
-<!-- about you -->
-  <%= a.input :job , placeholder: 'What are you doing ?' %>
-  <%= a.input :story , placeholder: 'Tell us more about you' %>
 
-<!-- address -->
-  <%= a.input :address %>
-  <%= a.input :city %>
-  <%= a.input :zip_code %>
-  <%= a.input :country, as: :string, priority: [ 'FR' ] %>
+    <%= a.input :birthdate, as: :date, start_year: Date.today.year - 100,
+                                end_year: Date.today.year - 18, discard_day: false,
+                                order: [:day, :month, :year] %>
 
-<!-- contact -->
-    <%= a.input :skype ,label: "Skype", placeholder: 'put the your username in Skype'%>
+  <!-- about you -->
+    <%= a.input :job , placeholder: 'What are you doing ?' %>
+    <%= a.input :story , placeholder: 'Tell us more about you' %>
 
-  <%= a.input :email ,label: "Email", placeholder: 'put your email address here'%>
-  <%= a.input :phone ,label: "Phone number", placeholder: 'put your phone number here'%>
-<!-- external link -->
-<%= a.input :website ,label: "Your website", placeholder: 'put the link here'%>
+  <!-- address -->
+    <%= a.input :address %>
+    <%= a.input :city %>
+    <%= a.input :zip_code %>
+    <%= a.input :country, as: :string, priority: [ 'FR' ] %>
 
-  <%= a.input :cv ,label: "Link to your CV", placeholder: 'put the link here (linkedin, viadeo...)'%>
-<!-- bonus -->
-   <%= a.input :dream_coworker ,label: "With whom would you dream to work with?", placeholder: 'Bob Dylan, Rihanna, Nelson Mandela, Mark Zuckerberg, etc.'%>
-  <%= a.input :quote ,label: "What is your favorite quote?", placeholder: "'Taking jobs that you don't like because you think it will look good on your resume is a little like saving up sex for your old!' Warren Buffett "%>
-  <%= a.input :song ,label: "What is your favorite working song?", placeholder: 'give us a youtube link'%>
-<!-- also host ?  -->
-  <%= a.input :host %>
+  <!-- contact -->
+      <%= a.input :skype ,label: "Skype", placeholder: 'put the your username in Skype'%>
 
-  <%= a.submit class: "btn btn-primary"%>
-<% end %>
+    <%= a.input :email ,label: "Email", placeholder: 'put your email address here'%>
+    <%= a.input :phone ,label: "Phone number", placeholder: 'put your phone number here'%>
+  <!-- external link -->
+  <%= a.input :website ,label: "Your website", placeholder: 'put the link here'%>
 
+    <%= a.input :cv ,label: "Link to your CV", placeholder: 'put the link here (linkedin, viadeo...)'%>
+  <!-- bonus -->
+     <%= a.input :dream_coworker ,label: "With whom would you dream to work with?", placeholder: 'Bob Dylan, Rihanna, Nelson Mandela, Mark Zuckerberg, etc.'%>
+    <%= a.input :quote ,label: "What is your favorite quote?", placeholder: "'Taking jobs that you don't like because you think it will look good on your resume is a little like saving up sex for your old!' Warren Buffett "%>
+    <%= a.input :song ,label: "What is your favorite working song?", placeholder: 'give us a youtube link'%>
+  <!-- also host ?  -->
+    <%= a.input :host %>
+  </div>
+</div>
+
+<div class="container submit">
+    <%= a.submit class: "btn btn-primary"%>
+</div>
+ <% end %>
 
 
 

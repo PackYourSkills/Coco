@@ -1,15 +1,14 @@
 // Your footer style
-#footer{
-
+#footer {
   padding: 20px;
   background-color: $red;
-  a{
+  a {
     color: white;
     &:hover{
     color: $gray-light;
     }
   }
-  p{
+  p {
     color: white;
     font-size: 20px,
   }

@@ -1,15 +1,14 @@
-<h1>Nests#show</h1>
-<p>Find me in app/views/nests/show.html.erb</p>
-
-<% if user_signed_in? %>
-  <% if current_user.id == @nest.user_id %>
-    <h1>Welcome home <%= current_user.first_name %> ! </h1>
+<div class="container text-center">
+  <% if user_signed_in? %>
+    <% if current_user.id == @nest.user_id %>
+      <h1>Welcome home <%= current_user.first_name %> ! </h1>
+    <% else %>
+      <h1>Hi <%= current_user.first_name %> ! </h1>
+    <% end %>
   <% else %>
-    <h1>Hi <%= current_user.first_name %> ! </h1>
+    <h1>Hey buddy ! </h1>
   <% end %>
-<% else %>
-  <h1>Hey buddy ! </h1>
-<% end %>
+</div>
 
 <p>Address of this nest <%= @nest.address %> - <%= @nest.city %></p>
 
