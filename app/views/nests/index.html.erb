@@ -8,13 +8,11 @@
       </div>
       <% @nests.each_with_index do |nest, index| %>
       <div class="col-xs-6">
-<!--       radial-gradient(center, rgba(1,1,1,0.5) 0%, rgba(255,255,255,0.5) 100%),
- -->        <div class="card" style="background-image: url(<%= nest.photo %>);">
-          <div class="card-description">
+        <div class="card" style="background-image: url(<%= nest.photo %>);">
+            <%= image_tag nest.user.photo, class: "card-user avatar avatar-large" %>
+            <div class="card_link"><%= link_to '', nest_path(nest) %></div>
             <h2>Le nid de <%= nest.user.first_name %></h2>
             <p><%= nest.city %></p>
-              </div>
-            <%= image_tag "http://res.cloudinary.com/pack-your-skills/image/upload/v1479466275/coco-blanc_w9kx1j.png", class: "card-user avatar avatar-large" %>
           </div>
         </div>
       <% end %>
