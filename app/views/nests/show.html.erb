@@ -3,18 +3,34 @@
     <div class="col-xs-12, col-sm-4">
       <div class="nest_description_box text-center">
         <div class='row'>
-          <%= image_tag @nest.user.photo, class: "avatar_host" %>
+          <% if @nest.user.photo != "" && @nest.user.photo != nil %>
+            <%= image_tag @nest.user.photo, class: "avatar_host" %>
+          <% else %>
+            <%= image_tag 'http://res.cloudinary.com/pack-your-skills/image/upload/v1479466113/avatar-coco_b2fb49.png', class: "avatar_host" %>
+          <% end %>
         </div>
         <div class='row'>
-        <h3>Nid de <%= @nest.user.first_name %></h3>
-        <p><%= @nest.description %></p>
+          <% if user_signed_in? && current_user.id == @nest.user_id %>
+            <h2>Welcome home <%= @nest.user.first_name %></h2>
+            <p><%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" }, class: "deviselink nest_show" %></p>
+            <p><%= link_to 'edit', edit_nest_path(@nest), class: "deviselink nest_show" %></p>
+            <p><%= link_to "manage avalabilities", nest_timeslots_path(@nest), class: "deviselink nest_show" %></p>
+            <% else %>
+            <h2>Nid de <%= @nest.user.first_name %></h2>
+            <p><%= @nest.description %></p>
+            <%= link_to 'see his profil', user_path(@nest.user) %>
+          <% end %>
         </div>
       </div>
     </div>
     <div class="col-xs-12, col-sm-8">
       <div class="row row_one">
         <div class="col-xs-12, col-sm-7">
-          <div class="nest_photo_box" style="background-image: url(<%= @nest.photo %>);"></div>
+          <% if @nest.photo != "" && @nest.photo != nil %>
+            <div class="nest_photo_box" style="background-image: url(<%= @nest.photo %>);"></div>
+          <% else %>
+            <div class="nest_photo_box" style="background-image: url('http://res.cloudinary.com/pack-your-skills/image/upload/v1479464093/nest-918898_960_720_xmlpk8.jpg');"></div>
+          <% end %>
         </div>
         <div class="col-xs-12, col-sm-5">
           <div class="nest_summary_box">

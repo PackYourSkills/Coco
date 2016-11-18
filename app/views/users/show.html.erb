@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-4">
-       <div class="box box_ratio_1_1" style="background-image: url(<%= @user.photo %>);"></div>
+      <% if @user.photo != "" && @user.photo != nil %>
+        <div class="box box_ratio_1_1" style="background-image: url(<%= @user.photo %>);"></div>
+      <% else %>
+       <div class="box box_ratio_1_1" style="background-image: url('http://res.cloudinary.com/pack-your-skills/image/upload/v1479466113/avatar-coco_b2fb49.png');"></div>
+      <% end %>
        <div class="box_name">
         <h1><%= @user.first_name if @user.first_name != nil %></h1>
         <% if @user.birthdate != nil %>
