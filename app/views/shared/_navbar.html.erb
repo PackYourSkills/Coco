@@ -6,6 +6,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
+  <div class="rollovericons ">
 
     <!-- Search form -->
 <!--     <form action="" class="navbar-wagon-search">
@@ -20,20 +21,23 @@
 
       <%= link_to "your profile", user_path(current_user), :class => "btn btn-primary" %>
 
-      <p> | </p>
 
       <% if current_user.nest == nil %>
-          <%= link_to 'share your nest', new_nest_path(current_user) , :class => "btn btn-warning" %>
+          <%= link_to 'share your nest', new_nest_path(current_user) , :class => "btn btn-primary" %>
       <% else %>
-          <%= link_to 'your nest', nest_path(current_user.nest) , :class => "btn btn-warning" %>
+          <%= link_to 'your nest', nest_path(current_user.nest) , :class => "btn btn-primary" %>
       <% end %>
 
-      <p> | </p>
+
 
     <!-- Login out link -->
       <%= link_to destroy_user_session_path,  method: :delete do %>
-        <i class="btn btn-danger active fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+        <i class="btn btn-danger fa fa-sign-out"> <%= t(".sign_out", default: "Log out") %></i>
       <% end %>
+
+</div>
+
+
 
 
 
@@ -78,7 +82,7 @@
     <% end %>
 
     <!-- Button (call-to-action) -->
-<!--     <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %> -->
+<!--     <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn btn-primary " %> -->
   </div>
 
   <!-- Dropdown list appearing on mobile only -->

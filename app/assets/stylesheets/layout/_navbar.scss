@@ -22,6 +22,10 @@
 }
 
 
+.rollovericons a{
+    margin: 20px;
+}
+
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 50px;
@@ -131,4 +135,22 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+
+
+.taillesignout {
+
+  font-weight: lighter;
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: 600;
+  padding : 6px 10px;
+  }
+
+.colorloginout {
+
+color: #E16827;
+
+
 }
