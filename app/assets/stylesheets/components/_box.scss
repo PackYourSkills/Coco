@@ -99,3 +99,13 @@
   margin-top:15px;
   padding:3px;
 }
+
+.box_ratio_1_1{
+  position: relative;
+  width: 100%;   /* desired width */
+}
+.box_ratio_1_1:before{
+  content: "";
+  display: block;
+  padding-top: 100%;  /* initial ratio of 1:1*/
+}
