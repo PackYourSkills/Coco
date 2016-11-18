@@ -7,8 +7,6 @@ before_action :set_nest, only: [:edit, :update, :show, :destroy]
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @nests = Nest.all
-
     radius = params['radius'].to_i
     address = params['address']
     @nests = Nest.near(address, radius)
