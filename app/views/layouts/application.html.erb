@@ -17,11 +17,13 @@
         <%= yield %>
         <%= render 'shared/flashes' %>
       </div>
-      <div id="footer">
+
         <% unless request.fullpath.include?('/nests?') %>
+        <div id="footer">
           <%= render 'shared/footer' %>
+        </div>
         <% end %>
-      </div>
+
     </div>
     <!-- for content_for -->
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
