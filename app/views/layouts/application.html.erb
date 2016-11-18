@@ -11,14 +11,18 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' %>
-    <%= yield %>
-    <%= render 'shared/flashes' %>
-
-    <% unless request.fullpath.include?('/nests?') %>
-      <%= render 'shared/footer' %>
-    <% end %>
-
+    <div id="main_container">
+      <%= render 'shared/navbar' %>
+      <div id="body">
+        <%= yield %>
+        <%= render 'shared/flashes' %>
+      </div>
+      <div id="footer">
+        <% unless request.fullpath.include?('/nests?') %>
+          <%= render 'shared/footer' %>
+        <% end %>
+      </div>
+    </div>
     <!-- for content_for -->
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
