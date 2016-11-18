@@ -1,3 +1,4 @@
+<div class="container_0_margin container_0_padding">
 <div class="container welcome text-center">
   <% if user_signed_in? %>
     <% if current_user.id == @nest.user_id %>
@@ -99,4 +100,5 @@
           <%= link_to "manage avalabilities", nest_timeslots_path(@nest), class: "deviselink nest_show" %>
     <% end %>
   <% end %>
+</div>
 </div>
