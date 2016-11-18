@@ -1,9 +1,14 @@
-<h1>Nests#edit</h1>
-<p>Find me in app/views/nests/edit.html.erb</p>
+<div class="container nest_form">
+  <div class ="intro">
+    <h1>Hi <%= @user.first_name %> ! </h1></br>
+    <p>Tell us more about your nest </p>
+  </div>
 
-<h1>Hi <%= @user.first_name %> ! </h1>
-<p>Edit your nest </p>
+  <div class="nest_form">
+    <%= render 'form' %>
+  </div>
 
-<%= render 'form' %>
-
-<%= link_to "return to your profil", "/users" %>
+<div class="container link">
+  <%= link_to "return to your profil", "/users", class:"deviselink" %>
+</div>
+</div>

@@ -1,32 +1,38 @@
-<%= simple_form_for (@nest) do |a| %>
-  <%= a.hidden_field :user_id, :value => @user.id %>
+<div class="container nest_edit">
+  <div class="nest_form_inputs">
+    <%= simple_form_for (@nest) do |a| %>
+      <%= a.hidden_field :user_id, :value => @user.id %>
 
-  <%= a.input :address %>
-  <%= a.input :city %>
-  <%= a.input :zip_code %>
-  <%= a.input :country, as: :string, priority: [ 'FR' ] %>
-
-
-  <%= a.input :description %>
-  <%= a.input :max_capacity %>
-  <%= a.input :price %>
-
-  <%= a.input :opening_hour %>
-  <%= a.input :closing_hour %>
+      <%= a.input :address %>
+      <%= a.input :city %>
+      <%= a.input :zip_code %>
+      <%= a.input :country, as: :string, priority: [ 'FR' ] %>
 
 
-  <%= a.input :wifi %>
-  <%= a.input :printer %>
-  <%= a.input :phoning_room %>
+      <%= a.input :description %>
+      <%= a.input :max_capacity %>
+      <%= a.input :price %>
 
-  <%= a.input :coffee %>
-  <%= a.input :tea %>
-  <%= a.input :microwave %>
+      <%= a.input :opening_hour %>
+      <%= a.input :closing_hour %>
 
-  <%= a.input :other_equipment %>
 
-  <%= a.input :photo %>
-  <%= a.input :photo_cache, as: :hidden %>
+      <%= a.input :wifi %>
+      <%= a.input :printer %>
+      <%= a.input :phoning_room %>
 
+      <%= a.input :coffee %>
+      <%= a.input :tea %>
+      <%= a.input :microwave %>
+
+      <%= a.input :other_equipment %>
+
+      <%= a.input :photo %>
+      <%= a.input :photo_cache, as: :hidden %>
+  </div>
+</div>
+
+<div class="container submit">
   <%= a.submit class: "btn btn-primary"%>
+</div>
 <% end %>

@@ -1,0 +1,27 @@
+.form-inputs {
+  width: 200px;
+}
+
+.form-actions {
+  margin: 30px;
+}
+
+.login {
+  width: 300px;
+  background-color: $brown;
+  border-radius: 10px;
+}
+
+.deviselink {
+  color: $red;
+}
+
+.deviselink:hover {
+  color: $brown;
+  text-decoration: none;
+}
+
+.link {
+  margin-bottom: 100px;
+}
+
