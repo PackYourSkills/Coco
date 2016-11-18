@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Coco</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://res.cloudinary.com/pack-your-skills/image/upload/v1479311735/Coco-seul_cc1gzz.png" />
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -13,17 +14,15 @@
   <body>
     <div id="main_container">
       <%= render 'shared/navbar' %>
+      <%= render 'shared/flashes' %>
       <div id="body">
         <%= yield %>
-        <%= render 'shared/flashes' %>
       </div>
-
-        <% unless request.fullpath.include?('/nests?') %>
+      <% unless request.fullpath.include?('/nests?') %>
         <div id="footer">
           <%= render 'shared/footer' %>
         </div>
-        <% end %>
-
+      <% end %>
     </div>
     <!-- for content_for -->
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?libraries=places&key=#{ENV['GOOGLE_API_BROWSER_KEY']}" %>
