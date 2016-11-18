@@ -30,3 +30,21 @@
     height:100px;
 
 }
+
+
+.image_100vh {
+  width:50%;
+  position: fixed;
+}
+
+#map {
+  color: white;
+  text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* if 70px navbar => height: calc(100vh - 70px); */
+}

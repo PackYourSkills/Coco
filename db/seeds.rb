@@ -26,6 +26,16 @@ user4.save!
 nest4 = user4.build_nest(address: '10 rue de la halle', zip_code: '59160', city: 'Lille', country: 'France', wifi:'false')
 nest4.save!
 
+user5 = User.create(first_name: 'Fix', email: 'fix@gmail.com', password: 'fixuser')
+user5.save!
+nest5 = user5.build_nest(address: '12 ter rue des tours', zip_code: '59160', city: 'Lille', country: 'France', wifi:'false')
+nest5.save!
+
+user6 = User.create(first_name: 'François', email: 'françois@gmail.com', password: 'francoisuser')
+user6.save!
+nest6 = user6.build_nest(address: '55 Rue du Faubourg Saint-Honoré', zip_code: '75008', city: 'Paris', country: 'France', wifi:'false')
+nest6.save!
+
 #user = User.create(name: 'Germany', population: 81831000)
 #user.nest.build()
 
