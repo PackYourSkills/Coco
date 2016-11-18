@@ -14,9 +14,7 @@
         <% else %>
           <%= link_to 'your nest', nest_path(current_user.nest) , :class => "btn btn-primary" %>
         <% end %>
-        <%= link_to destroy_user_session_path,  method: :delete do %>
-          <i class="btn btn-danger fa fa-sign-out"> <%= t(".sign_out", default: "Log out") %></i>
-        <% end %>
+        <%= link_to t(".sign_out", default: "Login"), new_user_session_path, class: "btn btn-danger fa fa-sign-out" %>
       <% else %>
         <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
