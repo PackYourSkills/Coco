@@ -18,6 +18,9 @@
             <% else %>
             <h2>Nid de <%= @nest.user.first_name %></h2>
             <%= link_to 'see the profil', user_path(@nest.user) %>
+            <h3>Contact</h3>
+            <p><%= @nest.user.phone %></p>
+            <p><%= @nest.user.email %></p>
             <p><%= @nest.description %></p>
           <% end %>
         </div>
