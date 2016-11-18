@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @age = age(@user.birthdate)
+    @age = age(@user.birthdate) unless @user.birthdate.nil?
   end
 
 
