@@ -1,104 +1,88 @@
-<div class="container_0_margin container_0_padding">
-<div class="container welcome text-center">
-  <% if user_signed_in? %>
-    <% if current_user.id == @nest.user_id %>
-      <h1>Welcome home <%= current_user.first_name %> ! </h1>
-    <% else %>
-      <h1>Hi <%= current_user.first_name %> ! </h1>
-    <% end %>
-  <% else %>
-    <h1>Hey buddy ! </h1>
-  <% end %>
-  <h3 class="nest_address text-center">The nest address : <%= @nest.address %> - <%= @nest.zip_code %> <%= @nest.city %></h3>
-</div>
-
-
-<div class="container">
-  <div class="row">
+<div class='container'>
+  <div class="row row_zero">
     <div class="col-xs-12, col-sm-4">
-      <div class="nest_description_box">
-        <h3>Nest decription</h3>
+      <div class="nest_description_box text-center">
+        <div class='row'>
+          <%= image_tag @nest.user.photo, class: "avatar_host" %>
+        </div>
+        <div class='row'>
+        <h3>Nid de <%= @nest.user.first_name %></h3>
         <p><%= @nest.description %></p>
+        </div>
       </div>
     </div>
     <div class="col-xs-12, col-sm-8">
-      <div class="container">
-        <div class="row row_one">
-          <div class="col-xs-12, col-sm-5">
-            <div class="nest_photo_box" style="background-image: url(<%= @nest.photo %>);"></div>
-          </div>
-          <div class="col-xs-12, col-sm-3">
-            <div class="nest_summary_box">
-              <h3>Max capacity</h3><p><%= @nest.max_capacity %> coworkers</p>
-              <h3>Price</h3><p><%= @nest.price %> €</p>
-              <h3>Opens at</h3><p><%= @nest.opening_hour %></p>
-              <h3>Closes at</h3><p><%= @nest.closing_hour %></p>
-            </div>
+      <div class="row row_one">
+        <div class="col-xs-12, col-sm-7">
+          <div class="nest_photo_box" style="background-image: url(<%= @nest.photo %>);"></div>
+        </div>
+        <div class="col-xs-12, col-sm-5">
+          <div class="nest_summary_box">
+            <h3>Max capacity</h3><p><%= @nest.max_capacity %> coworkers</p>
+            <h3>Price</h3><p><%= @nest.price %> €</p>
+            <h3>Opens at</h3><p><%= @nest.opening_hour %></p>
+            <h3>Closes at</h3><p><%= @nest.closing_hour %></p>
           </div>
         </div>
-        <div class="row row_two">
-          <div class="col-xs-12, col-sm-2">
-            <div class="nest_equipment_box">
-              <% if @nest.wifi %>
-                <p><i class="fa fa-wifi fa-2x" aria-hidden="true"></i>Yes</p>
-              <% else %>
-                <p><i class="fa fa-wifi fa-2x" aria-hidden="true"></i>No</p>
-              <% end %>
-              <% if @nest.printer %>
-                <p><i class="fa fa-print fa-2x" aria-hidden="true"></i>Yes</p>
-              <% else %>
-                <p><i class="fa fa-print fa-2x" aria-hidden="true"></i>No</p>
-              <% end %>
-              <% if @nest.phoning_room%>
-                <p><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Yes</p>
-              <% else %>
-                <p><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>No</p>
-              <% end %>
-              <% if @nest.coffee%>
-                <p><i class="fa fa-coffee fa-2x" aria-hidden="true"></i>Yes</p>
-              <% else %>
-                <p><i class="fa fa-coffee fa-2x" aria-hidden="true"></i>No</p>
-              <% end %>
-            </div>
+      </div>
+      <div class="row row_two">
+        <div class="col-xs-12, col-sm-4">
+          <div class="nest_equipment_box">
+            <% if @nest.wifi %>
+            <p><i class="fa fa-wifi fa-2x" aria-hidden="true"></i>Yes</p>
+            <% else %>
+            <p><i class="fa fa-wifi fa-2x" aria-hidden="true"></i>No</p>
+            <% end %>
+            <% if @nest.printer %>
+            <p><i class="fa fa-print fa-2x" aria-hidden="true"></i>Yes</p>
+            <% else %>
+            <p><i class="fa fa-print fa-2x" aria-hidden="true"></i>No</p>
+            <% end %>
+            <% if @nest.phoning_room%>
+            <p><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>Yes</p>
+            <% else %>
+            <p><i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>No</p>
+            <% end %>
+            <% if @nest.coffee%>
+            <p><i class="fa fa-coffee fa-2x" aria-hidden="true"></i>Yes</p>
+            <% else %>
+            <p><i class="fa fa-coffee fa-2x" aria-hidden="true"></i>No</p>
+            <% end %>
           </div>
-          <div class="col-xs-12, col-sm-6">
-            <div class="map_box">
-              <div id="map" style="width: 100%; height: 40vh;"></div>
-
-                <% content_for(:after_js) do %>
-                  <%= javascript_tag do %>
-                    $(document).ready(function() {
+        </div>
+        <div class="col-xs-12, col-sm-8">
+          <div class="map_box">
+            <div id="map" style="width: 100%; height: 40vh;"></div>
+                      <% content_for(:after_js) do %>
+                      <%= javascript_tag do %>
+                      $(document).ready(function() {
                       var handler = Gmaps.build('Google');
                       handler.buildMap({ internal: { id: 'map' } }, function() {
-                        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-                        handler.bounds.extendWith(markers);
-                        handler.fitMapToBounds();
-                        if (markers.length == 0) {
-                          handler.getMap().setZoom(2);
-                        } else if (markers.length == 1) {
-                          handler.getMap().setZoom(14);
-                        }
-                      });
-                    });
-                  <% end %>
-                <% end %>
-            </div>
+                      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+                      handler.bounds.extendWith(markers);
+                      handler.fitMapToBounds();
+                      if (markers.length == 0) {
+                      handler.getMap().setZoom(2);
+                    } else if (markers.length == 1) {
+                    handler.getMap().setZoom(14);
+                  }
+                });
+              });
+              <% end %>
+            <% end %>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 </div>
-
 <div class="container text-center link">
   <% if user_signed_in? %>
-    <% if current_user.id == @nest.user_id %>
-      <%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" }, class: "deviselink nest_show" %>
-          <%= link_to 'edit', edit_nest_path(@nest), class: "deviselink nest_show" %>
-          <%= link_to "return to your profile", user_path(@user), class: "deviselink nest_show" %>
-          <%= link_to "manage avalabilities", nest_timeslots_path(@nest), class: "deviselink nest_show" %>
-    <% end %>
+  <% if current_user.id == @nest.user_id %>
+  <%= link_to "delete my nest", nest_path(@nest), method: :delete, data: { confirm: "Are you sure?" }, class: "deviselink nest_show" %>
+  <%= link_to 'edit', edit_nest_path(@nest), class: "deviselink nest_show" %>
+  <%= link_to "return to your profile", user_path(@user), class: "deviselink nest_show" %>
+  <%= link_to "manage avalabilities", nest_timeslots_path(@nest), class: "deviselink nest_show" %>
   <% end %>
-</div>
+  <% end %>
 </div>

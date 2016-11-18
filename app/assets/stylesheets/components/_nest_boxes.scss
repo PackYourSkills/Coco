@@ -6,6 +6,9 @@
   padding-bottom: 20px;
 }
 
+.row_zero {
+  margin-top: 20px;
+}
 .row_one {
   margin-bottom: 20px;
 }
@@ -25,7 +28,8 @@
 
 .nest_photo_box {
   height: 300px;
-  background-size: cover;
+  background-size: cover !important;
+  background-position: center;
   border-radius: 5px;
 }
 
@@ -68,4 +72,8 @@
 
 .nest_show {
   padding-left: 20px;
+}
+.avatar_host {
+  width:100px;
+  height:auto;
 }
