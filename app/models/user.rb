@@ -17,8 +17,9 @@ devise :database_authenticatable, :registerable,
        :recoverable, :rememberable, :trackable, :validatable
 
   def song_youtube_id
-    song.match(/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)/i)[1]
+    if song != ""
+      song.match(/(?:https?:\/\/)?(?:www\.)?youtu\.?be(?:\.com)?\/?.*(?:watch|embed)?(?:.*v=|v\/|\/)([\w\-_]+)/i)[1]
+    end
   end
-
 end
 

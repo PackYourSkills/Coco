@@ -1,88 +1,71 @@
-
-  <center>
-  <h1>Hi <%= current_user.first_name %> ! </h1>
-
-  <%= link_to 'edit', edit_user_path, :class => "btn btn-success btn-sm" %>
-
-
-
-  <% if current_user.nest == nil %>
-     <%= link_to 'share your nest', new_nest_path(current_user), :class => "btn btn-info btn-sm" %>
-  <% else %>
-       <%= link_to 'show your nest', nest_path(current_user.nest), :class => " btn btn-outline-secondary" %>
-      <%= link_to 'delete your nest', nest_path(current_user.nest), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-  </center>
-
-
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-4">
-
-
-       <h3> Your photo </h3>
-        <%= image_tag @user.photo, class: "img-Thumbnail",width: "70%",height: "10%"%>
-
-
-
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-
-        <h3> Infos base </h3>
-      <% if @user.birthdate != nil %>
-        <p> <%= @birthdate %> </p>
-      <% end %>
-       <p> <%= @user.address %> </p>
-       <p> <%= @user.city %> </p>
-       <p> <%= @user.country %> </p>
-       <p> <%= @user.phone %> </p>
-
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> --><h3><p>
-        My story </p></h3>
-        <p> <%= @user.story %> </p>
-
-
-      </div>
-      </div>
-
-
-
-      <div class="row row_bottom" >
-
-        <div class="col-xs-12 col-sm-4 si">
-
-        <!-- insert <div class="card"> -->
-
-<h3> My favorite quote</h3>
-        <p> <%= @user.quote %> </p>
-
-
-
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+       <div class="box" style="background-image: url(<%= @user.photo %>);"></div>
+       <div class="box_name">
+        <h1><%= @user.first_name if @user.first_name != nil %></h1>
+        <p><%= @age if @user.birthdate != nil %> ans</p>
+        <% if current_user.id == @user.id %>
+          <%= link_to 'edit', edit_user_path, :class => "btn btn-success btn-sm" %>
+        <% end %>
+       </div>
    </div>
-  <div class="col-xs-12 col-sm-4 si">
-      <h3> My dreamed coworker</h3>
-        <p> <%= @user.dream_coworker %> </p>
-
-       </div>
-
-  <div class="col-xs-12 col-sm-4 si">
-
-
-<h3><p> Your favorite song </p></h3>
-
-  <iframe width="250" height="200" src="http://www.youtube.com/embed/<%= @user.song_youtube_id %>" frameborder="0" allowfullscreen></iframe>
-       </div>
-
-       </div>
+   <div class="col-xs-12 col-sm-8">
+    <div class="container-profil">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <% if @user.story != nil %>
+            <div class="box">
+              <div class="title">his story</div>
+              <div class="content_box">
+                <p><%= @user.story %></p>
+              </div>
+            </div>
+          <% end %>
+          <% if @user.song_youtube_id != nil %>
+            <div class="box box_song">
+              <div class="title">his working song</div>
+              <div class="content_box">
+                <iframe width="100%" height="auto" src="http://www.youtube.com/embed/<%= @user.song_youtube_id %>" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <% if @user.quote != nil %>
+            <div class="box box_quote">
+              <div class="title">his favorite quote</div>
+              <div class="content_box">
+                <p><%= @user.quote %></p>
+              </div>
+            </div>
+          <% end %>
+          <% if @user.website != nil %>
+            <div class="box">
+              <div class="content_box">
+                <h1>Website</h1>
+              </div>
+              <div class="box_link"><%= link_to '', @user.website %></div>
+            </div>
+          <% end %>
+          <% if @user.dream_coworker != nil %>
+            <div class="box box_cowork">
+              <div class="title">the coworker of his dream</div>
+              <div class="content_box">
+                <h1><%= @user.dream_coworker %></h1>
+              </div>
+            </div>
+          <% end %>
+          <% if @user.cv != nil %>
+            <div class="box">
+              <div class="box_link"><%= link_to '', @user.cv %></div>
+              <div class="content_box">
+                <h1>CV</h1>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-
-
-
-
   </div>
+</div>
